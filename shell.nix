@@ -1,4 +1,4 @@
 let 
-  projectDrv = (import ./release6.nix { withHoogle = true; } ).project1;
+  projectDrv = (import ./release.nix { withHoogle = true; } ).project1;
 in 
   projectDrv.env
