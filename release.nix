@@ -1,11 +1,11 @@
 { withHoogle ? false
 }:
 let
-  pinnedPkgs = import ./pkgs-from-json.nix { json = ./nixos-18-09.json; };
+  pinnedPkgs = import ./pkgs-from-json.nix { json = ./nixos-ghc843.json; };
 
   customHaskellPackages = pinnedPkgs.haskellPackages.override (old: {
     overrides = pinnedPkgs.lib.composeExtensions (old.overrides or (_: _: {})) (self: super: {
-      project1 = self.callPackage ./default.nix { };
+      project1 = self.callCabal2nix "project1" ./project1.cabal { };
       # addditional overrides go here
     });
   });

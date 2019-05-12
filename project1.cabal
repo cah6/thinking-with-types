@@ -8,6 +8,10 @@ cabal-version:       >=1.10
 
 executable nix-test
   main-is:             Main.hs
+  default-extensions: OverloadedStrings
+                    , DataKinds
+                    , TypeApplications
+                    , TypeOperators
   build-depends:      base >=4.9
                     , containers
                     , lens
